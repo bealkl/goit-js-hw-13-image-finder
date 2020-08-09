@@ -20,7 +20,7 @@ function moreBtnCreate() {
     const moreBtn = document.createElement('button');
     moreBtn.classList.add('more');
     root.append(moreBtn);
-    moreBtn.textContent = 'One more';
+    moreBtn.textContent = 'Load more';
   }
 }
 
