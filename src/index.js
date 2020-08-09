@@ -20,7 +20,7 @@ function moreBtnCreate() {
     const moreBtn = document.createElement('button');
     moreBtn.classList.add('more');
     root.append(moreBtn);
-    moreBtn.textContent = 'click';
+    moreBtn.textContent = 'One more';
   }
 }
 
@@ -38,7 +38,7 @@ function renderImages(e) {
 }
 
 function renderMoreImages() {
-  page += 1;
+  page++;
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
     gallery.insertAdjacentHTML('beforeend', markup);
@@ -47,7 +47,7 @@ function renderMoreImages() {
         top: document.documentElement.clientHeight - 100,
         behavior: 'smooth',
       });
-    }, 1000);
+    }, 500);
   });
 }
 

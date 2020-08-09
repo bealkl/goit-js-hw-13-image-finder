@@ -1,4 +1,28 @@
 /* goit-js-hw-13-image-finder */
+:root {
+  --gap10: 10px;
+  --color-bg: rgb(255, 255, 255);
+}
+/* default settings for page  */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+/* some specific setting */
+
+body {
+  background-color: var(--color-bg);
+}
+
 #search-form {
   display: grid;
   justify-content: center;
@@ -20,7 +44,7 @@ img {
 .gallery {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
+  grid-gap: var(--gap10);
   list-style: none;
 }
 
