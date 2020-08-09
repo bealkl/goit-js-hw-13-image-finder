@@ -6,6 +6,6 @@ const fetchImg = (query, page, key) => {
   return fetch(url)
     .then(response => response.json())
     .then(data => data.hits)
-    .catch(err => console.warn(err));
+    .catch(err => console.warn(err)); // jshint ignore:line
 };
 export default fetchImg;
