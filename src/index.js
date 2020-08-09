@@ -10,30 +10,32 @@ let query;
 
 const key = '15706976-4d1554b6a0e3b07c0b8f96066';
 
-const root = document.querySelector('.root');
-const input = document.querySelector('input');
-const form = document.querySelector('#search-form');
-const gallery = document.querySelector('.gallery');
+const refs = {
+  root: document.querySelector('.root'),
+  input: document.querySelector('input'),
+  form: document.querySelector('#search-form'),
+  gallery: document.querySelector('.gallery'),
+};
 
 function moreBtnCreate() {
   if (!document.querySelector('.more')) {
     const moreBtn = document.createElement('button');
     moreBtn.classList.add('more');
-    root.append(moreBtn);
+    refs.root.append(moreBtn);
     moreBtn.textContent = 'Load more';
   }
 }
 
 function renderImages(e) {
   e.preventDefault();
-  gallery.innerHTML = '';
-  query = input.value;
+  refs.gallery.innerHTML = '';
+  query = refs.input.value;
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
-    gallery.innerHTML = markup;
+    refs.gallery.innerHTML = markup;
     moreBtnCreate();
     document.querySelector('.more').addEventListener('click', renderMoreImages);
-    form.reset();
+    refs.form.reset();
   });
 }
 
@@ -41,7 +43,7 @@ function renderMoreImages() {
   page++;
   fetchFunc(query, page, key).then(hits => {
     const markup = card(hits);
-    gallery.insertAdjacentHTML('beforeend', markup);
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
     setTimeout(() => {
       window.scrollBy({
         top: document.documentElement.clientHeight - 100,
@@ -51,4 +53,4 @@ function renderMoreImages() {
   });
 }
 
-form.addEventListener('submit', renderImages);
+refs.form.addEventListener('submit', renderImages);
